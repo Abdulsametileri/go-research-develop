@@ -7,7 +7,8 @@ import (
 
 type Config struct {
 	Telegram struct {
-		BotToken string `mapstructure:"bot_token"`
+		BotToken             string `mapstructure:"bot_token"`
+		AbdulsametTelegramId int64  `mapstructure:"abdulsamet_telegram_id"`
 	} `mapstructure:"telegram"`
 }
 
