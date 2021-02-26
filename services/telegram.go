@@ -1,16 +1,17 @@
 package services
 
+// v5.0.0-rc1.0.20200424181826-774f1e72e764
 import (
+	"github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"log"
 
 	"github.com/Abdulsametileri/ingilizce-kelime-go/config"
-	"github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
 
 type Telegram struct{}
 
 func (t *Telegram) setup() {
-	telegramConfig := config.Get().Telegram
+	telegramConfig := config.Get().TelegramConfig
 	botToken := telegramConfig.BotToken
 	chatId := telegramConfig.AbdulsametTelegramId
 

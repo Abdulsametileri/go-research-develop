@@ -5,11 +5,24 @@ import (
 	"log"
 )
 
+type TelegramConfig struct {
+	BotToken             string `mapstructure:"bot_token"`
+	AbdulsametTelegramId int64  `mapstructure:"abdulsamet_telegram_id"`
+}
+
+type MongoConfig struct {
+	User     string
+	Password string
+	Name     string
+	Host     string
+	Port     int
+}
+
 type Config struct {
-	Telegram struct {
-		BotToken             string `mapstructure:"bot_token"`
-		AbdulsametTelegramId int64  `mapstructure:"abdulsamet_telegram_id"`
-	} `mapstructure:"telegram"`
+	TelegramConfig `mapstructure:"telegram"`
+	Database       struct {
+		MongoConfig `mapstructure:"mongo"`
+	}
 }
 
 var cfg Config
