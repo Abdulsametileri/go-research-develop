@@ -21,10 +21,16 @@ func main() {
 	r := mux.NewRouter()
 
 	r.HandleFunc("/home-page", homePageHandler)
+	r.HandleFunc("/healtcheck", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Println("istek geldi")
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte("Healthy"))
+	})
 
 	r.PathPrefix("/assets/").Handler(http.FileServer(http.FS(assets)))
 
 	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+
 		w.Header().Add("Content-Type", "text/html")
 		w.Write(websiteIndexFile)
 	})
