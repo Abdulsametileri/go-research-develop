@@ -1,15 +1,16 @@
-## BASE IMAGE
-FROM golang:1.16.0-alpine3.13
-
-## v1: RUN mkdir /ingilizce-kelime-go
-
-## Copy the current directory into our newly created directory.
-## v1: ADD . /ingilizce-kelime-go
+FROM golang:1.16.0 AS Builder
 
 WORKDIR /ingilizce-kelime-go
+
 COPY go.sum go.mod ./
 RUN go mod download
 COPY . .
-RUN go build -o main .
 
+RUN CGO_ENABLED=0 go build -o main .
+
+FROM scratch
+WORKDIR /ingilizce-kelime-go
+COPY --from=0 /ingilizce-kelime-go/ .
 CMD ["/ingilizce-kelime-go/main"]
+
+

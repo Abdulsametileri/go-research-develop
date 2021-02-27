@@ -16,7 +16,6 @@ var assets embed.FS
 var websiteIndexFile []byte
 
 func main() {
-	fmt.Println("Bismillah")
 	config.Setup()
 
 	r := mux.NewRouter()

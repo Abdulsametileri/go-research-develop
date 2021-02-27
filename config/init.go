@@ -34,7 +34,7 @@ func Get() Config {
 func Setup() {
 	viper.SetConfigFile("config/config.yaml")
 	if err := viper.ReadInConfig(); err != nil {
-		log.Panic("Config dosyası okunamadı.")
+		log.Panic("Config dosyası okunamadı. " + err.Error())
 	}
 
 	err := viper.Unmarshal(&cfg)
