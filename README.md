@@ -1,3 +1,8 @@
+# How to run this project locally?
+
+- You must install docker
+- You have to define your own credentials config/config.yaml
+
 $ docker build -t ingilizce-kelime-go .
 
 $ docker run -p 8080:8080 -d ingilizce-kelime-go
