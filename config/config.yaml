@@ -1,0 +1,10 @@
+telegram:
+  bot_token: xx
+  abdulsamet_telegram_id: xx
+database:
+  mongo:
+    user: xx
+    password: xx
+    name: xx
+    host: localhost
+    port: 27017
