@@ -21,3 +21,7 @@ TODO
 - [ ] RabbitMQ
 
 - [ ] PostgreSQL Implementation for a specific branch
+
+```
+ git log --all --graph --decorate --oneline
+```
