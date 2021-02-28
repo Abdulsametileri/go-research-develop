@@ -4,7 +4,7 @@ COPY go.sum go.mod ./
 RUN go mod download
 COPY . .
 
-RUN CGO_ENABLED=0 go build -o main .
+RUN CGO_ENABLED=0 go build --tags prod -o main .
 
 FROM alpine:3.7
 RUN apk add --no-cache curl
