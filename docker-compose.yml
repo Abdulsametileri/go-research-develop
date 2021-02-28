@@ -1,0 +1,17 @@
+version: '3.3' # we have to put this information at the beginning of the file
+
+services:
+  app:
+    build: .
+    working_dir: /ingilizce-kelime-go
+    ports:
+      - "8080:8080"
+    links:
+      - redis
+      - mongo
+
+  redis:
+    image: "redis:alpine"
+
+  mongo:
+    image: "mongo:latest"
