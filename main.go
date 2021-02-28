@@ -5,6 +5,7 @@ import (
 	_ "embed"
 	"fmt"
 	"github.com/Abdulsametileri/ingilizce-kelime-go/config"
+	"github.com/Abdulsametileri/ingilizce-kelime-go/database"
 	"github.com/Abdulsametileri/ingilizce-kelime-go/services"
 	"github.com/gorilla/mux"
 	"net/http"
@@ -23,21 +24,22 @@ func main() {
 
 	r.HandleFunc("/home-page", homePageHandler)
 	r.HandleFunc("/healtcheck", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Println("istek geldi")
+		fmt.Println("istek geldi-3")
 		w.WriteHeader(http.StatusOK)
 		w.Write([]byte("Healthy"))
 	})
 
 	services.Setup(&services.Redis{})
+	database.SetupDB(database.MongoClient{})
 
 	r.PathPrefix("/assets/").Handler(http.FileServer(http.FS(assets)))
 
 	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-
 		w.Header().Add("Content-Type", "text/html")
 		w.Write(websiteIndexFile)
 	})
 
+	fmt.Println(":8080 Dinleniyor.")
 	_ = http.ListenAndServe(":8080", r)
 
 	// services.Setup(&services.Telegram{})

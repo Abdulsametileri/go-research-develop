@@ -40,6 +40,8 @@ func (MongoClient) setup() {
 	if err != nil {
 		log.Panic(ErrPing)
 	}
+
+	fmt.Println("MONGO AYAĞA KALKTI")
 	/*
 		i, err := mongoClient.instance.Database(DatabaseName).Collection(CollectionWords).InsertOne(context.TODO(), bson.M{"bismillah": "b"})
 		fmt.Println(i.InsertedID)

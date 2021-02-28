@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/Abdulsametileri/ingilizce-kelime-go/config"
 	"github.com/go-redis/redis/v8"
+	"log"
 )
 
 // brew services restart redis
@@ -17,7 +18,10 @@ func (t *Redis) setup() {
 		Password: redisConfig.Password,
 		DB:       redisConfig.DB,
 	})
-	pong, err := rdb.Ping(context.TODO()).Result()
-	fmt.Println(err)
-	fmt.Println("Redis PİNG: " + pong)
+	_, err := rdb.Ping(context.TODO()).Result()
+	if err != nil {
+		log.Panic("Redise PİNG atılamadı." + err.Error())
+	}
+
+	fmt.Println("REDİS AYAĞA KALKTI")
 }
