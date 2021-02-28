@@ -18,11 +18,18 @@ type MongoConfig struct {
 	Port     int
 }
 
+type RedisConfig struct {
+	Host     string
+	Password string
+	DB       int
+}
+
 type Config struct {
 	TelegramConfig `mapstructure:"telegram"`
 	Database       struct {
 		MongoConfig `mapstructure:"mongo"`
 	}
+	RedisConfig `mapstructure:"redis"`
 }
 
 var cfg Config

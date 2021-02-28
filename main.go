@@ -5,6 +5,7 @@ import (
 	_ "embed"
 	"fmt"
 	"github.com/Abdulsametileri/ingilizce-kelime-go/config"
+	"github.com/Abdulsametileri/ingilizce-kelime-go/services"
 	"github.com/gorilla/mux"
 	"net/http"
 )
@@ -27,6 +28,8 @@ func main() {
 		w.Write([]byte("Healthy"))
 	})
 
+	services.Setup(&services.Redis{})
+
 	r.PathPrefix("/assets/").Handler(http.FileServer(http.FS(assets)))
 
 	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
@@ -36,6 +39,7 @@ func main() {
 	})
 
 	_ = http.ListenAndServe(":8080", r)
+
 	// services.Setup(&services.Telegram{})
 	// database.SetupDB(database.MongoClient{})
 }

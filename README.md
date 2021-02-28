@@ -16,6 +16,8 @@ TODO
 
 - [ ] Mongo Implementation
 
+- [ ] Redis
+
 - [ ] Elastic Search
 
 - [ ] RabbitMQ
