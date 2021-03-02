@@ -5,7 +5,6 @@ import (
 	_ "embed"
 	"fmt"
 	"github.com/Abdulsametileri/ingilizce-kelime-go/config"
-	"github.com/Abdulsametileri/ingilizce-kelime-go/database"
 	"github.com/Abdulsametileri/ingilizce-kelime-go/services"
 	"github.com/gorilla/mux"
 	"net/http"
@@ -30,7 +29,6 @@ func main() {
 	})
 
 	services.Setup(&services.Redis{})
-	database.SetupDB(database.MongoClient{})
 
 	r.PathPrefix("/assets/").Handler(http.FileServer(http.FS(assets)))
 

@@ -20,6 +20,7 @@ type MongoConfig struct {
 
 type RedisConfig struct {
 	Host     string
+	Username string
 	Password string
 	DB       int
 }

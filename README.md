@@ -14,15 +14,14 @@ $ docker run -p 8080:8080 -it ingilizce-kelime-go
 TODO
 - [ ] Telegram Implementation
 
-- [ ] Mongo Implementation
-
 - [ ] Redis
 
 - [ ] Elastic Search
 
 - [ ] RabbitMQ
 
-- [ ] PostgreSQL Implementation for a specific branch
+- [ ] Maybe PostgreSQL Implementation for a specific branch
+- [ ] Maybe Mongo Implementation
 
 ```
  git log --all --graph --decorate --oneline

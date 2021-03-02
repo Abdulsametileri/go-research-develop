@@ -1,4 +1,4 @@
-version: '3.3' # we have to put this information at the beginning of the file
+version: '3.4'
 
 services:
   app:
@@ -6,12 +6,20 @@ services:
     working_dir: /ingilizce-kelime-go
     ports:
       - "8080:8080"
-    links:
-      - redis
-      - mongo
+    depends_on:
+      redis:
+        condition: service_healthy
 
   redis:
     image: "redis:alpine"
-
-  mongo:
-    image: "mongo:latest"
+    volumes:
+      - ./healthchecks:/healthchecks
+      - ./config/redis.conf:/usr/local/etc/redis.conf
+    ports:
+      - "0.0.0.0:6379:6379"
+    entrypoint:
+      - redis-server
+      - /usr/local/etc/redis.conf
+    healthcheck:
+      test: /healthchecks/redis.sh
+      interval: "3s"
