@@ -1,0 +1,15 @@
+telegram:
+  bot_token: 1628299325:AAF82tpS_BV1UpCYJyhbYBs0Md18rqFF2-M
+  abdulsamet_telegram_id: 513873156
+database:
+  mongo:
+    user: abdulsamet
+    password: abdulsamet
+    name: ingilizce
+    host: mongo
+    port: 27017
+redis:
+  host: redis:6379
+  username: ingilizce-kelime-go
+  password: samet123
+  db: 0
