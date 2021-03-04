@@ -4,12 +4,12 @@ COPY go.sum go.mod ./
 RUN go mod download
 COPY . .
 
-RUN CGO_ENABLED=0 go build --tags prod -o main .
+RUN CGO_ENABLED=0 go build --tags prod -o main main.go
 
 FROM alpine:3.7
 RUN apk add --no-cache curl
-#HEALTHCHECK --interval=2s --timeout=10s \
- #   CMD curl -f 127.0.0.1:8080/healtcheck || exit 1
+HEALTHCHECK --interval=60s --timeout=10s \
+    CMD curl -f 127.0.0.1:8080/healtcheck || exit 1
 WORKDIR /ingilizce-kelime-go
 COPY --from=Builder /ingilizce-kelime-go/ .
 CMD ["/ingilizce-kelime-go/main"]
