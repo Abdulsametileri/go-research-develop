@@ -11,9 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="839fc889-e9a9-4852-b302-da444180097e" name="Default Changelist" comment="redis compose healtcheck volume etc.">
-      <change afterPath="$PROJECT_DIR$/cGo.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gColl.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/defer.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -348,6 +346,10 @@
       <screen x="0" y="25" width="1920" height="971" />
     </state>
     <state x="595" y="225" key="git4idea.branch.GitSmartOperationDialog/0.25.1920.971/1920.145.1536.935@0.25.1920.971" timestamp="1614792323729" />
+    <state x="1057" y="237" width="670" height="676" key="search.everywhere.popup" timestamp="1614834651336">
+      <screen x="0" y="25" width="1920" height="971" />
+    </state>
+    <state x="1057" y="237" width="670" height="676" key="search.everywhere.popup/0.25.1920.971/1920.145.1536.935@0.25.1920.971" timestamp="1614834651336" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
